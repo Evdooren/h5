@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *, *:after, *:before {
+                box-sizing: border-box;
+            }
+            html, body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+            }
+            body {
+                font-family: Arial;
+                text-align: justify;
+            }
+            
+            .hidden {
+                display: none;
+            }
+            
+                      
+            header {
+                padding: 1em;
+                color: white;
+                background-color: cadetblue;
+                clear: left;
+                text-align: center;
+            }
+    
+            p {
+                text-align: justify;    
+            }
+            
+            form {
+               
+            }
+            fieldset {
+                width: 100%;
+            }
+
+            .answer:hover {
+                font-weight: bold;
+            }
+  
+            input[type="radio"] {
+                left: -999em;
+                position: absolute;
+            }
+            
+            footer {
+                border: 1px solid gray;
+                padding: 1em;
+                color: white;
+                background-color: cadetblue;
+                text-align: center;
+                
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 50px;
+            }
+            
+            .left-block,
+            .right-block {
+                width: 49%;
+                display: inline-block;
+                
+            }
+            
+            /*.block-container {
+                display: flex;
+                flex-direction: row; 
+            }
+            
+            .block {
+                flex: 1 1 auto;
+                background: orange;
+            }
+            
+            
+            .left-block, .right-block {}*/
+                
+        </style>
+        
+         <a href="http://www.rythovius.nl">
+             <img src="http://www.rythovius.nl/Portals/_default/Skins/Rythovius/img/logo.png" alt="Schoollogo" align="right">
+        </a>
+    
+    </head>
+    
+    <body>
+    
+        
+
+        <header>
+           <h1>Terugblik maatschappijleer</h1>
+        </header>
+            
+             <form>
+        
+            <fieldset class="vraag hidden block-container"> 
+                <div class="left-block">
+                    <legend>Welke van de onderstaande zaken horen <b>niet</b> bij het werk van een goede journalist?</legend>
+                    <ol type="A">
+                        <li class="answer"><input type="radio" name="vraag1" value="fout" /><label>Hoor en wederhoor</label></li>
+                        <li class="answer"><input type="radio" name="vraag1" value="fout" /><label>Scheiden van feit en opinie</label></li>
+                        <li class="answer"><input type="radio" name="vraag1" value="goed" /><label>Bewust selectieve waarneming</label></li>
+                        <li class="answer"><input type="radio" name="vraag1" value="fout" /><label>Bronvermelding</label></li>
+                    </ol> 
+                </div>
+                <div class="right-block">
+                    Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron. Hier komt de tekst van de bron.  
+                </div>
+           
+           </fieldset>
+                 
+<!--
+           <fieldset class="vraag hidden">              
+               <div class="left-block">
+                <legend>Welk begrip beschrijft een <em>vaststaand beeld van een hele groep mensen</em>?</legend>
+               <ol type="A">
+                    <li class="answer"><input type="radio" name="vraag2" value="goed" /><label>Stereotype</label></li>
+                    <li class="answer"><input type="radio" name="vraag2" value="fout" /><label>Vooroordeel</label></li>
+                    <li class="answer"><input type="radio" name="vraag2" value="fout" /><label>Discriminatie</label></li>
+                    <li class="answer"><input type="radio" name="vraag2" value="fout" /><label>Indoctrinatie</label></li>
+                </ol> </div>
+                DO NOT REMOVE!!
+                 <p class=right-block>
+                    Hier komt de tekst van de tweede bron.  
+                </p>
+                              
+            </fieldset>
+                             
+            <fieldset class="vraag hidden"> 
+                <div class="left-block">
+                <legend>Vraag 3</legend>
+                <ol type="A">
+                    <li class="answer"><input type="radio" name="vraag3" value="fout" /><label>3 Antwoord 1</label></li>
+                    <li class="answer"><input type="radio" name="vraag3" value="fout" /><label>Antwoord 2</label></li>
+                    <li class="answer"><input type="radio" name="vraag3" value="goed" /><label>Antwoord 3</label></li>
+                    <li class="answer"><input type="radio" name="vraag3" value="fout" /><label>Antwoord 4</label></li>
+                </ol> </div>
+            </fieldset>
+            
+            <fieldset class="result hidden">
+                
+            </fieldset>
+-->
+                
+            </form>
+            
+       
+                    
+        <footer>Rythovius College</footer>
+
+
+        
+        <script>
+                        
+            var result = [];
+            var currentQuestionIndex = 0;
+            var questions = [].slice.call(document.querySelectorAll("fieldset"));
+            var currentQuestion;
+            var currentBron
+            
+            function setCurrentQuestion(index) {
+                
+                questions.forEach(function(q) {
+                    if (!q.classList.contains("hidden")) {
+                        q.classList.add("hidden");
+                    }
+                });
+                
+                questions[index].classList.remove("hidden");
+                
+                var answers = [].slice.call(questions[index].querySelectorAll("li"));
+                answers.forEach(function(answer) {
+                    answer.onclick = function() {
+                        result[index] = answer.children[0].getAttribute("value");
+                        goNext();
+                    }
+                });
+                            
+            }
+            
+            function goPrevious() {
+                 if (currentQuestionIndex > 0) {
+                    currentQuestionIndex = currentQuestionIndex - 1;
+                    setCurrentQuestion(currentQuestionIndex);
+                }
+            }
+            function goNext() {
+                 if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex = currentQuestionIndex + 1;
+                    setCurrentQuestion(currentQuestionIndex);
+                    }
+                showResult();
+            }
+            
+            function showResult() {
+                document.querySelector(".result").innerHTML = result.reduce(function(acc, item, index) {
+                    return acc + "<li> vraag " + (index + 1) + ":" + item + "</li>";
+                }, "<legend>Antwoorden</legend><ul>") + "</ul>";
+            }
+ 
+            setCurrentQuestion(0);
+            
+        </script>
+        
+    </body>
+</html>

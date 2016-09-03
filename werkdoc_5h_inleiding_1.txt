@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header {
+    font-family: Arial;
+    padding: 1em;
+    color: white;
+    background-color: cadetblue;
+    clear: left;
+    text-align: center;
+}
+    
+article {
+    text-align: justify;
+    font-family: Arial;
+    margin-left: 170px;
+    margin-right: 170px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+    
+footer {
+    width: 98%;
+    border: 1px solid gray;
+    font-family: Arial;
+    padding: 1em;
+    color: white;
+    background-color: cadetblue;
+    clear: left;
+    text-align: center;
+}
+        
+</style>
+
+    <a href="http://www.rythovius.nl">
+  <img src="http://www.rythovius.nl/Portals/_default/Skins/Rythovius/img/logo.png" alt="Schoollogo" align="right">
+</a>
+    
+    
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Vragen</h1>
+</header>
+  
+<article>
+    <h1>Vraag 1</h1>
+    
+    <p>Is dit een vraag?</p>
+    <ol type="A">
+        <a1 style="cursor: pointer" onclick="beoordeling(1)"><li>Ja</li></a1>
+        <a1 style="cursor: pointer" onclick="beoordeling(0)"><li>Nee</li></a1>
+        <a1 style="cursor: pointer" onclick="beoordeling(0)"><li>Misschien</li></a1>
+    </ol>
+    
+<script>
+    
+var score = 0;
+    
+while (score < 4) {
+  function beoordeling(input) {
+    if(input == 1) {
+        alert(score);
+        score++;
+    } else {
+        alert("Dat is fout!");
+    }
+  }
+}
+  
+</script>
+    
+</article>
+    
+<footer>Rythovius College</footer>
+
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header {
+    font-family: Arial;
+    padding: 1em;
+    color: white;
+    background-color: cadetblue;
+    clear: left;
+    text-align: center;
+}
+    
+article {
+    text-align: justify;
+    font-family: Arial;
+    margin-left: 170px;
+    margin-right: 170px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+    
+footer {
+    width: 98%;
+    border: 1px solid gray;
+    font-family: Arial;
+    padding: 1em;
+    color: white;
+    background-color: cadetblue;
+    clear: left;
+    text-align: center;
+}
+        
+</style>
+
+    <a href="http://www.rythovius.nl">
+  <img src="http://www.rythovius.nl/Portals/_default/Skins/Rythovius/img/logo.png" alt="Schoollogo" align="right"/>
+</a>
+    
+    
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Vragen</h1>
+</header>
+  
+<article>
+    <h1>Vraag 1</h1>
+    
+    <p class="vraag">Hier staat de eerste vraag.</p>
+    <ul class="antwoorden">
+        <li>
+            <input type="radio" name="q1" value="a" />
+            <label for="q1a">Antwoord 1</label>
+        </li>
+        <li>
+            <input type="radio" name="q1" value="a" />
+            <label for="q1a">Antwoord 1</label>
+        </li>
+        <li>
+            <input type="radio" name="q1" value="a" />
+            <label for="q1a">Antwoord 1</label>
+        </li>
+    
+    </ul>
+    
+<script>
+
+var score = 0;
+    
+var vragen = {
+    vraag2: "Tweede vraag",
+    vraag3: "Derde vraag"
+};
+    
+    function beoordeling(input) {
+    if(input == 1) {
+        score++;
+        alert("Dat is goed!" + " Je score is nu " + score);
+        document.getElementById("vraag").innerHTML = vragen.vraag2;
+        document.getElementById("antwoord A").innerHTML = "Antwoord A, maar ik snap niet hoe ik het in een lijst krijg.";
+        document.getElementById("antwoord B").innerHTML = "Antwoord B, maar ik snap niet hoe ik het in een lijst krijg.";
+        document.getElementById("antwoord C").innerHTML = "Antwoord C, maar ik snap niet hoe ik het in een lijst krijg.";
+    } else {
+        alert("Dat is fout!");
+    }
+  }
+    
+</script>
+    
+</article>
+    
+<footer>Rythovius College</footer>
+
+</div>
+    
+</body>
+</html>
